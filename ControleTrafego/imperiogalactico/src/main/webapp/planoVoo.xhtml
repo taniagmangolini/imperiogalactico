@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:decorate template="/padrao.xhtml">
+	<ui:define name="centro">
+		<p:panel id="basic" header="Plano de Voo" style="margin-bottom:20px">
+
+			<h:messages id="messages" layout="table" errorStyle="color: red"
+				infoStyle="color: green" warnStyle="color: orange"
+				fatalStyle="color: gray" showSummary="false" showDetail="true"/>
+
+			<h:panelGrid columns="1" cellpadding="10">
+				<h:form>
+					<p:outputLabel value="Planeta:" />
+					<p:selectOneMenu id="comboPlanetas" process="@this" required="true" requiredMessage="Informe o planeta" 
+						value="#{controleTrafego.planetaSelecionado}">
+						<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
+						<f:selectItems value="#{controleTrafego.planetas}" var="s"
+							itemValue="#{s.url}" itemLabel="#{s.name}" />
+					</p:selectOneMenu>
+					<h:message for="comboPlanetas"  showDetail="false" showSummary="true" title="Selecione o planeta"/>
+					<br />
+					<br />
+					<p:outputLabel value="Nave:" />
+					<p:selectOneMenu id="comboNaves" required="true" requiredMessage="Selecione a nave" 
+						value="#{controleTrafego.naveSelecionada}">
+						<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
+						<f:selectItems value="#{controleTrafego.naves}" />
+					</p:selectOneMenu>
+					<h:message id="msgComboNaves" for="comboNaves"  />
+					<br />
+					<br />
+					<p:outputLabel value="Tripulantes" />
+					<p:pickList id="picklistTripulantes" required="true" requiredMessage="Selecione os tripulantes" 
+						converter="tripulanteConverter"
+						value="#{controleTrafego.tripulantes}" var="tripulante"
+						itemLabel="#{tripulante.name}" itemValue="#{tripulante}">
+					</p:pickList>
+					<h:message for="picklistTripulantes"  />
+					<br />
+					<br />
+					<p:commandButton value="Salvar" id="btn_salvar" type="submit"
+						action="#{controleTrafego.salvar}" process="@form"
+						styleClass="ui-priority-primary" update=":messages" >
+					</p:commandButton>
+
+					<p:button outcome="index" value="Voltar">
+					</p:button>
+				</h:form>
+			</h:panelGrid>
+		</p:panel>
+	</ui:define>
+</ui:decorate>
+
+</html>

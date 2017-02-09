@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+ 
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Império Galáctico</title>
+         <link rel="stylesheet" href="css/styles.css"></link>
+    </h:head>
+    <h:body>
+        <div align="center">
+            <p:layout class="layout">  
+                <p:layoutUnit position="north" size="100">  
+                    <h:graphicImage class="topo" url="img/topo.png" />
+                    <h:outputText class="topo-text" value="Império Galáctico - Tráfego Espacial"/>
+                </p:layoutUnit>   
+                <p:layoutUnit position="center">  
+                    <ui:insert name="centro">
+                        O que estiver aqui será substituido!
+                    </ui:insert>
+                </p:layoutUnit>  
+            </p:layout>  
+        </div>
+    </h:body>
+</html>

@@ -1,0 +1,23 @@
+body {
+ 
+
+ font-size: 12px
+}
+
+.topo {
+	max-width: 10%;
+    height: auto;
+    float: left
+}
+
+.topo-text {
+	font-size: 24px;
+    text-align: center;
+    font-family: calibri;
+}
+
+.layout {
+	min-width:1020px;
+	max-width:1020px;
+	min-height:600px
+}
